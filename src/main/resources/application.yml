@@ -1,7 +1,6 @@
 server:
   port: 8000
 
-
 spring:
   application:
     name: geteway-service
@@ -11,11 +10,23 @@ spring:
         - id: first-service
           uri: http://localhost:8081/
           predicates:
-            - Path=/first-service/**
+            - Path=/first/**
+          filters:
+            # set simple pre, post filter
+#            - AddRequestHeader=first-request-header,first-request-header-value2
+#            - AddResponseHeader=first-response-header,first-response-header-value2
+            # set custom filter class
+            - CustomFilter
         - id: second-service
           uri: http://localhost:8082/
           predicates:
-            - Path=/second-service/**
+            - Path=/second/**
+          filters:
+            # set simple pre, post filter
+#            - AddRequestHeader=second-request-header,second-request-header-value2
+#            - AddResponseHeader=second-response-header,second-response-header-value2
+            # set custom filter class
+            - CustomFilter
 eureka:
   client:
     register-with-eureka: false
