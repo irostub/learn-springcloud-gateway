@@ -32,7 +32,12 @@ spring:
 #            - AddRequestHeader=second-request-header,second-request-header-value2
 #            - AddResponseHeader=second-response-header,second-response-header-value2
             # set custom filter class
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Hi, there.
+                preLogger: true
+                postLogger: true
 eureka:
   client:
     register-with-eureka: false
