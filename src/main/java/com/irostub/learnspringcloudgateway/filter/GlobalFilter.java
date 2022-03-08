@@ -1,4 +1,4 @@
-package com.irostub.learnspringcloudgateway.config;
+package com.irostub.learnspringcloudgateway.filter;
 
 
 import lombok.Getter;
